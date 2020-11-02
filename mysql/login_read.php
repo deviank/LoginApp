@@ -1,5 +1,7 @@
 <?php
 include "database.php";
+
+include "functions.php";
 ?>
 
 
@@ -15,12 +17,16 @@ include "database.php";
     <div class="container">
         
         <div class="col-xs-6">
+
             <pre>
+
                <?php
-               while($row = mysqli_fetch_assoc($result)){
+                while($row = mysqli_fetch_assoc($result)){
                    print_r($row);
                }
+
                ?>
+
             </pre>
         </div>
 
