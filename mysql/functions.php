@@ -1,8 +1,9 @@
 <?php
-include "database.php";
+require "database.php";
 
 function showAllData(){
         global $connection;
+
         $query = "SELECT * FROM users";
 
         $result = mysqli_query($connection, $query);
@@ -14,10 +15,11 @@ function showAllData(){
 
         
         while($row = mysqli_fetch_assoc($result)){
-            $id = $row['id'];
+                $id = $row['id'];
                 echo "<option value='$id'>$id</option>" ;
                         }
                     
     }
 
 ?>
+

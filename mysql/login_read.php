@@ -1,7 +1,6 @@
 <?php
-include "database.php";
-
-include "functions.php";
+require "database.php";
+require "functions.php";
 ?>
 
 

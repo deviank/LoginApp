@@ -1,7 +1,7 @@
 <?php    
 require "database.php";
 
-include "functions.php"
+require "functions.php"
 
 ?>
 <!DOCTYPE html>
@@ -45,7 +45,7 @@ include "functions.php"
             </form>   
 
         </div>
-
+       
     </div>
 </body>
 </html>
