@@ -1,8 +1,16 @@
 <?php
-require "database.php";
-require "functions.php";
-?>
+include "database.php";
+include "functions.php";
 
+$query = "SELECT * FROM users ";
+
+$result = mysqli_query($connection, $query);
+
+if (!$result ) {
+    die("Unable to process your query at this time." . mysqli_error($connection));
+}
+
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -16,17 +24,15 @@ require "functions.php";
     <div class="container">
         
         <div class="col-xs-6">
+        <pre>
+            <?php
+            
+            while ($row = mysqli_fetch_row($result)) {
+                print_r($row);
+            }
 
-            <pre>
-
-               <?php
-                while($row = mysqli_fetch_assoc($result)){
-                   print_r($row);
-               }
-
-               ?>
-
-            </pre>
+            ?>
+        </pre>
         </div>
 
     </div>
