@@ -1,25 +1,9 @@
 <?php
 include "database.php";
 
-if( isset($_POST['submit']) ) {
+include "functions.php";
 
-    $username = $_POST['username'];
-    $password = $_POST['password'];
-
-    echo "User " . $username . " " . "successfully created.";
-
-}
-
-
-
-$query = "INSERT INTO users(username, password) ";
-$query .= "VALUES( '$username', '$password' ) ";
-
-$result = mysqli_query($connection, $query);
-
-if(!$result){
-    echo "Unable to process your query at this time." . mysqli_error();
-}
+createRows();
 
 ?>
 
@@ -35,7 +19,7 @@ if(!$result){
     <div class="container">
         
         <div class="col-xs-6">
-        
+        <h1 class="text-center">Create</h1>
             <form action="login_create.php" method="post">
 
                 <div class="form-group">
@@ -48,7 +32,7 @@ if(!$result){
                     <input type="password" name="password" class="form-control"> 
                 </div>
 
-                <input class="btn btn-primary" type="submit" name="submit" value="Submit" >
+                <input class="btn btn-primary" type="submit" name="submit" value="Create" >
 
             </form>   
 

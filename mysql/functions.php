@@ -1,6 +1,31 @@
 <?php
 include "database.php";
 
+
+function createRows(){
+
+    if( isset($_POST['submit']) ) {
+        global $connection;
+
+        $username = $_POST['username'];
+        $password = $_POST['password'];
+    
+        echo "User " . $username . " " . "successfully created.";
+    
+    }
+    
+    $query = "INSERT INTO users(username, password) ";
+    $query .= "VALUES( '$username', '$password' ) ";
+    
+    $result = mysqli_query($connection, $query);
+    
+    if(!$result){
+        echo "Unable to process your query at this time." . mysqli_error();
+    }
+}
+
+
+
 function showAllData(){
     global $connection;
 
@@ -62,7 +87,7 @@ function deleteRows(){
             
              die("QUERY FAILED" . mysqli_error($connection));
                  
-            }else {
+            } else {
             
             echo "Record ID: " . $id . " Deleted"; 
             

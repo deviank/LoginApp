@@ -24,10 +24,11 @@ if (!$result ) {
     <div class="container">
         
         <div class="col-xs-6">
+        <h1 class="text-center">Database Info</h1>
         <pre>
             <?php
             
-            while ($row = mysqli_fetch_row($result)) {
+            while ($row = mysqli_fetch_assoc($result)) {
                 print_r($row);
             }
 
