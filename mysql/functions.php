@@ -41,7 +41,7 @@ while($row = mysqli_fetch_assoc($result)) {
 }
 
 
-function showAllData(){
+function showAllData (){
     global $connection;
 
     global $result;
