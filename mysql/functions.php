@@ -3,9 +3,9 @@ include "database.php";
 
 
 function createRows(){
+    global $connection;
 
-    if( isset($_POST['submit']) ) {
-        global $connection;
+    if(isset($_POST['submit']) ) {
 
         $username = $_POST['username'];
         $password = $_POST['password'];
@@ -25,16 +25,33 @@ function createRows(){
 }
 
 
+function readRows(){
+    global $connection;
+    $query = "SELECT * FROM users";
+    $result = mysqli_query($connection, $query);
+    if(!$result) {
+        die('Query FAILED' . mysqli_error());
+    }
+        
+while($row = mysqli_fetch_assoc($result)) {
+        
+        print_r($row);
+    }  
+
+}
+
 
 function showAllData(){
     global $connection;
+
+    global $result;
 
     $query = "SELECT * FROM users ";
 
     $result = mysqli_query($connection, $query);
     
     if (!$result ) {
-        die("Unable to process your query at this time." . mysqli_error($connection));
+        die("Unable to process your query at this time." . mysqli_error());
     };
 
     while($row = mysqli_fetch_assoc($result)){
