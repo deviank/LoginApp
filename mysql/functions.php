@@ -25,7 +25,7 @@ function createRows(){
 }
 
 
-function readRows(){
+function readRows () {
     global $connection;
     $query = "SELECT * FROM users";
     $result = mysqli_query($connection, $query);
