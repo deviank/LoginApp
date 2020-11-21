@@ -9,6 +9,9 @@ function createRows(){
 
         $username = $_POST['username'];
         $password = $_POST['password'];
+
+        $username = mysqli_real_escape($connection, $username);
+        $password = mysqli_real_escape($connection, $password);
     
         echo "User " . $username . " " . "successfully created.";
     
