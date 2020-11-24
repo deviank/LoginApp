@@ -10,8 +10,14 @@ function createRows(){
         $username = $_POST['username'];
         $password = $_POST['password'];
 
-        $username = mysqli_real_escape($connection, $username);
-        $password = mysqli_real_escape($connection, $password);
+        $username = mysqli_real_escape_string($connection, $username);
+        $password = mysqli_real_escape_string($connection, $password);
+
+        $hashFormat = "$2y$10$";
+        $salt = "isusesomecrazystrings22";
+        $hash_and_salt = $hashFormat . $salt;
+
+        $password = crypt($password, $hash_and_salt);
     
         echo "User " . $username . " " . "successfully created.";
     
